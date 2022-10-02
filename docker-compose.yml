@@ -4,14 +4,19 @@ services:
     build: .
     ports:
       - "3000:3000"
+    environment:
+      WATCHPACK_POLLING: "true"
     volumes:
       - type: bind
         source: ./
         target: /home/node
       - type: volume
         target: /home/node/node_modules
+
   test:
     build: .
+    environment:
+      WATCHPACK_POLLING: "true"
     volumes:
       - type: bind
         source: ./
