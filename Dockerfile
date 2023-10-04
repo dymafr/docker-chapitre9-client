@@ -1,7 +1,6 @@
-FROM node:alpine
-USER node
-WORKDIR '/home/node'
-COPY package.json .
+FROM node:lts-alpine
+WORKDIR /app
+COPY package*.json .
 RUN npm install
-COPY --chown=node:node . .
+COPY . .
 CMD ["npm", "start"]
